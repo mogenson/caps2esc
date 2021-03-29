@@ -1,3 +1,12 @@
+# Michael Mogenson Fork Notes
+
+This fork expands the functionality to the left Control key. Press and release
+left ctrl to emit an Esc event. Hold left ctrl and press another key to emit a
+Ctrl+Key event.
+
+Copy `caps2esc` to `/usr/bin` and `caps2esc.service` to
+`/usr/lib/systemd/system`. Run `systemctl enable caps2esc.service`.
+
 # caps2esc
 
 _Transforming the most useless key **ever** in the most useful one._
@@ -19,9 +28,9 @@ frozen.**
 
 ## What is it?
 
-- **Put what's useless in its place**  
+- **Put what's useless in its place**
   <sub>_By moving the CAPSLOCK function to the far ESC location_</sub>
-- **Make what's useful comfortably present, just below your Pinky**  
+- **Make what's useful comfortably present, just below your Pinky**
   <sub>_By moving both ESC and CTRL functions to the CAPSLOCK location_</sub>
 
 ## Why?!
@@ -31,7 +40,9 @@ ESC when pressed alone is quite handy, specially in vi.
 
 ## Dependencies
 
-- [libevdev][]
+```
+apt install libevdev-dev libudev-dev
+```
 
 ## Building
 
@@ -70,7 +81,7 @@ of such device until it disconnects, at which time it ends its execution.
 As always, there's always a caveat:
 
 - It will "grab" the detected devices for itself.
-- If you tweak your key repeat settings, check whether they get reset.  
+- If you tweak your key repeat settings, check whether they get reset.
   Please check [this report][key-repeat-fix] about the resolution.
 
 ## History
